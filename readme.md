@@ -1,38 +1,14 @@
-# Agriculture Process Management API with Swagger UI
+# Agriculture Process Management API with Swagger 
 
 This project contains APIs to manage agriculture process on fields and its documentation in Swagger
 
 Project consists of following features
   - Auth module
-  
-        - Basic Auth using JWT
   - Crops management 
-  
-        - Add / Edit / Delete / View operations.
-        - All users can view. 
-        - Add, Edit, Delete only by admin 
   - Fields management
-  
-        - Add / Edit / Delete / View operations.
-        - All users can view. 
-        - Users can add fields for them, cannot Add/Edit others. 
-        - Full permission for Admin 
   - Tractors management
-  
-        - Add / Edit / Delete / View operations.
-        - All users can view. 
-        - Add, Edit, Delete only by admin 
-
   - Process Fields
-
-        - Add / Edit / Delete / View operations.
-        - All users can view. 
-        - Users can add fields for them, cannot Add/Edit others. 
-        - Full permission for Admin & Supervisor
-        - Admin and Supervisor can change status from pending to processed
   - Reports
-
-        - Only for admin
 
 
 #### Prerequisites 
@@ -79,7 +55,7 @@ php artisan migrate
 ```
 - Run seeds command
 ```sh 
-php artisan db:seed
+php artisan db:seed*
 ```
 
 Crops seed will create default crops : "Wheat","Broccoli" and "Strawberry"
@@ -103,7 +79,7 @@ php -S localhost:8000 -t public
 
 - Now the project is all setup and APIs will be available at [http://localhost:8000/](http://localhost:8000/)
 
-- Swagger UI is available at [http://localhost:8000/swagger-ui/](http://localhost:8000/swagger-ui/)
+Swagger UI is available at [http://localhost:8000/swagger-ui/](http://localhost:8000/swagger-ui/)
 
-- Swagger JSON file is available at [http://localhost:8000/swagger-ui/swagger.json](http://localhost:8000/swagger-ui/swagger.json)
+Swagger JSON file is available at [http://localhost:8000/swagger-ui/swagger.json](http://localhost:8000/swagger-ui/swagger.json)
 
