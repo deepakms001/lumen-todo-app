@@ -10,7 +10,10 @@ class CreateTask
     {
         $task = new Task();
         $task->name = $fields['name'];
-        $task->user_id = $fields['user_id'];
+        $task->description = $fields['description'];
+        $task->date_time = $fields['date_time'];
+        $task->category_id = $fields['category_id'];
+        $task->status = $fields['status'];
         $task->save();
         return $task;
     }

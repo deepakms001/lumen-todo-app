@@ -1,18 +1,23 @@
 <?php
 
-namespace App\Operations\Category;
+namespace App\Operations\Task;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class ValidateCreateCategory
+class ValidateUpdateTask
 {
     private $validatorArray;
 
     public function __construct()
     {
         $this->validatorArray = [
-            'name' => 'required',
+            'name' => 'max:255',
+            'description' => 'max:255',
+            'date_time' => 'date_format:Y-m-d H:i:s',
+            'category_id' => 'numeric',
+            'category_name' => 'min:1|max:255',
+            'status' => 'required|in:Completed,Snoozed,Overdue'
         ];
     }
 

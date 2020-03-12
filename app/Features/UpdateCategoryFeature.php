@@ -4,6 +4,7 @@
 namespace App\Features;
 
 use App\Models\Category;
+use App\Operations\Auth\DataDuplicationCheck;
 use App\Operations\Auth\UserPermissionCheck;
 use App\Operations\Category\ValidateCreateCategory;
 use Exception;
@@ -28,6 +29,10 @@ class UpdateCategoryFeature
             ], 422));
         } else {
             $category->name = $request->input('name');
+            (new DataDuplicationCheck())->run(Category::class, [
+                'name' => $category->name,
+                'user_id' => $category->user_id,
+            ],$category->id);
             if ($category->save()) {
                 $result = (new JsonResponse([
                     'status' => 'success',

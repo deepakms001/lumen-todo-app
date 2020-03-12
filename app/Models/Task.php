@@ -23,6 +23,6 @@ class Task extends Model
 
     public function category()
     {
-        return $this->hasOne(Category::class, 'user_id', 'id');
+        return $this->hasOne(Category::class, 'id', 'category_id');
     }
 }

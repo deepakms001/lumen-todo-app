@@ -15,7 +15,7 @@ class DeleteTaskFeature
     {
         $task = Task::find($taskId);
         if (!$task) {
-            throw new Exception('Category not found', 404);
+            throw new Exception('Task not found', 404);
         }
         (new UserPermissionCheck())->run($request->auth, $task);
         if ($task->delete()) {

@@ -15,7 +15,7 @@ class UserPermissionCheck
             return true;
         } else if ($object instanceof Task) {
             $object->load('category');
-            if ($object->category->user_id == $object->user_id) {
+            if ($object->category->user_id == $user->id) {
                 return true;
             }
         }

@@ -3,6 +3,8 @@
 
 namespace App\Features;
 
+use App\Models\Category;
+use App\Operations\Auth\DataDuplicationCheck;
 use App\Operations\Category\CreateCategory;
 use App\Operations\Category\ValidateCreateCategory;
 use Exception;
@@ -23,6 +25,7 @@ class CreateCategoryFeature
         } else {
             $data = $request->all();
             $data['user_id'] = $request->auth->id;
+            (new DataDuplicationCheck())->run(Category::class, $data);
             $category = (new CreateCategory())->run($data);
             if (isset($category->id)) {
                 $result = (new JsonResponse([
